@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
 
+type NavTo = "/" | "/collections" | "/about" | "/journal" | "/contact" | "/wishlist";
+
 export function Footer() {
   return (
     <footer className="bg-burgundy-deep text-[color-mix(in_oklab,var(--ivory)_92%,transparent)]">
@@ -47,7 +49,7 @@ function FooterCol({
   links,
 }: {
   title: string;
-  links: { to: string; label: string }[];
+  links: { to: NavTo; label: string }[];
 }) {
   return (
     <div>
