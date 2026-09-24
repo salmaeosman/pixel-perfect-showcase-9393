@@ -15,6 +15,7 @@ export function SearchOverlay() {
       const t = setTimeout(() => inputRef.current?.focus(), 120);
       return () => clearTimeout(t);
     }
+    return undefined;
   }, [searchOpen]);
 
   useEffect(() => {

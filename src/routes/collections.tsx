@@ -14,11 +14,11 @@ type Search = {
 
 export const Route = createFileRoute("/collections")({
   validateSearch: (search: Record<string, unknown>): Search => ({
-    category: typeof search.category === "string" ? search.category : undefined,
-    sort: typeof search.sort === "string" ? search.sort : undefined,
-    color: typeof search.color === "string" ? search.color : undefined,
-    size: typeof search.size === "string" ? search.size : undefined,
-    maxPrice: typeof search.maxPrice === "number" ? search.maxPrice : undefined,
+    category: typeof search["category"] === "string" ? search["category"] : undefined,
+    sort: typeof search["sort"] === "string" ? search["sort"] : undefined,
+    color: typeof search["color"] === "string" ? search["color"] : undefined,
+    size: typeof search["size"] === "string" ? search["size"] : undefined,
+    maxPrice: typeof search["maxPrice"] === "number" ? search["maxPrice"] : undefined,
   }),
   head: () => ({
     meta: [
