@@ -4,7 +4,13 @@ import { CATEGORIES, products, type Category } from "@/lib/products";
 import { ProductCard } from "@/components/site/ProductCard";
 import { Reveal } from "@/components/site/Reveal";
 
-type Search = { category?: string; sort?: string; color?: string; maxPrice?: number; size?: string };
+type Search = {
+  category?: string | undefined;
+  sort?: string | undefined;
+  color?: string | undefined;
+  size?: string | undefined;
+  maxPrice?: number | undefined;
+};
 
 export const Route = createFileRoute("/collections")({
   validateSearch: (search: Record<string, unknown>): Search => ({
@@ -148,10 +154,10 @@ function Filter({
   format,
 }: {
   label: string;
-  value?: string;
+  value?: string | undefined;
   options: string[];
   onChange: (v: string | undefined) => void;
-  format?: (v: string) => string;
+  format?: ((v: string) => string) | undefined;
 }) {
   return (
     <label className="flex items-center gap-3">

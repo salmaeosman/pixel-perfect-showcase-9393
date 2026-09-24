@@ -24,7 +24,8 @@ export const Route = createFileRoute("/journal")({
 const IMAGES: Record<string, string> = { atelier, editorial, vase };
 
 function Journal() {
-  const [lead, ...rest] = journal;
+  const lead = journal[0]!;
+  const rest = journal.slice(1);
 
   return (
     <>
@@ -41,7 +42,7 @@ function Journal() {
       <section className="shell">
         <Reveal className="grid gap-10 border-t border-border py-14 md:grid-cols-[58fr_42fr] md:items-center">
           <img
-            src={IMAGES[lead.image]}
+            src={IMAGES[lead.image] ?? editorial}
             alt={lead.title}
             loading="lazy"
             className="aspect-[4/3] w-full bg-cream object-cover"
@@ -58,7 +59,7 @@ function Journal() {
           {rest.map((article, i) => (
             <Reveal key={article.id} delay={i * 100}>
               <img
-                src={IMAGES[article.image]}
+                src={IMAGES[article.image] ?? editorial}
                 alt={article.title}
                 loading="lazy"
                 className="aspect-[4/3] w-full bg-cream object-cover"

@@ -208,7 +208,7 @@ function Home() {
             <div className="mt-10 flex flex-wrap gap-4">
               <button
                 type="button"
-                onClick={() => addToCart(featured, featured.sizes[0], featured.colors[0].name)}
+                onClick={() => addToCart(featured, featured.sizes[0] ?? "One size", featured.colors[0]?.name ?? "Default")}
                 className="label-xs bg-burgundy px-9 py-4 text-primary-foreground transition-colors duration-500 hover:bg-burgundy-deep"
               >
                 Add to bag
@@ -265,7 +265,7 @@ function Home() {
               <Link to="/journal" className="group block">
                 <div className="aspect-[4/3] overflow-hidden bg-cream">
                   <img
-                    src={journalImages[article.image]}
+                    src={journalImages[article.image] ?? editorial}
                     alt={article.title}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-[900ms] ease-[var(--ease-luxe)] group-hover:scale-[1.04]"

@@ -47,7 +47,7 @@ export function ProductCard({ product }: { product: Product }) {
 
         <button
           type="button"
-          onClick={() => addToCart(product, product.sizes[0], product.colors[0].name)}
+          onClick={() => addToCart(product, product.sizes[0] ?? "One size", product.colors[0]?.name ?? "Default")}
           className="label-xs absolute inset-x-0 bottom-0 translate-y-full bg-burgundy py-3.5 text-primary-foreground opacity-0 transition-all duration-500 ease-[var(--ease-luxe)] group-hover:translate-y-0 group-hover:opacity-100 focus-visible:translate-y-0 focus-visible:opacity-100"
         >
           Quick add
