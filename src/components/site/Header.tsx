@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Menu, Search, ShoppingBag, X, Heart } from "lucide-react";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { useShop } from "@/lib/shop";
 
 const NAV = [
@@ -22,6 +23,23 @@ export function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [menuOpen]);
 
   return (
     <header
@@ -70,40 +88,74 @@ export function Header() {
           </button>
           <button
             type="button"
-            aria-label="Menu"
-            onClick={() => setMenuOpen(true)}
+            aria-label={menuOpen ? "Close menu" : "Menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
+            onClick={() => setMenuOpen((open) => !open)}
             className="p-1 lg:hidden"
           >
-            <Menu className="h-[18px] w-[18px]" />
+            {menuOpen ? <X className="h-[18px] w-[18px]" /> : <Menu className="h-[18px] w-[18px]" />}
           </button>
         </div>
       </div>
 
-      {menuOpen && (
-        <div className="fixed inset-0 z-50 bg-background lg:hidden">
-          <div className="shell flex h-[74px] items-center justify-between">
-            <span className="font-display text-2xl tracking-[0.18em]">AURÉA</span>
-            <button type="button" aria-label="Close menu" onClick={() => setMenuOpen(false)}>
-              <X className="h-5 w-5" />
-            </button>
-          </div>
-          <nav className="shell mt-10 flex flex-col gap-7">
-            {NAV.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                onClick={() => setMenuOpen(false)}
-                className="font-display text-4xl"
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Link to="/wishlist" onClick={() => setMenuOpen(false)} className="font-display text-4xl">
-              Wishlist
-            </Link>
-          </nav>
-        </div>
-      )}
+      {typeof document !== "undefined" &&
+        createPortal(
+          <div
+            className={`fixed inset-0 z-[100] overflow-hidden bg-background transition-[opacity,visibility] duration-500 ease-[var(--ease-luxe)] lg:hidden ${
+              menuOpen ? "visible opacity-100" : "pointer-events-none invisible opacity-0"
+            }`}
+            onClick={() => setMenuOpen(false)}
+            aria-hidden={!menuOpen}
+          >
+            <div
+              id="mobile-navigation"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Main navigation"
+              className={`flex h-[100dvh] w-full flex-col overflow-y-auto bg-background transition-transform duration-700 ease-[var(--ease-luxe)] ${
+                menuOpen ? "translate-y-0" : "-translate-y-3"
+              }`}
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="shell grid h-[74px] shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-6">
+                <Link
+                  to="/"
+                  onClick={() => setMenuOpen(false)}
+                  className="min-w-0 truncate font-display text-2xl tracking-[0.18em]"
+                >
+                  AURÉA
+                </Link>
+                <button type="button" aria-label="Close menu" onClick={() => setMenuOpen(false)} className="shrink-0 p-1">
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+              <nav className="shell flex min-h-0 flex-1 flex-col justify-center gap-[clamp(1rem,4vh,2rem)] py-8">
+                {NAV.map((item) => (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    activeOptions={{ exact: item.to === "/" }}
+                    onClick={() => setMenuOpen(false)}
+                    className="w-fit max-w-full font-display text-[clamp(2rem,9vw,3.25rem)] leading-none transition-colors duration-500 hover:text-burgundy"
+                    activeProps={{ className: "text-burgundy" }}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+                <Link
+                  to="/wishlist"
+                  onClick={() => setMenuOpen(false)}
+                  className="w-fit max-w-full font-display text-[clamp(2rem,9vw,3.25rem)] leading-none transition-colors duration-500 hover:text-burgundy"
+                  activeProps={{ className: "text-burgundy" }}
+                >
+                  Wishlist
+                </Link>
+              </nav>
+            </div>
+          </div>,
+          document.body,
+        )}
     </header>
   );
 }
