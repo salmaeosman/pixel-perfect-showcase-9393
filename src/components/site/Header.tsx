@@ -116,9 +116,12 @@ export function Header() {
               className={`flex h-[100dvh] w-full flex-col overflow-y-auto bg-background transition-transform duration-700 ease-[var(--ease-luxe)] ${
                 menuOpen ? "translate-y-0" : "-translate-y-3"
               }`}
-              onClick={(event) => event.stopPropagation()}
+              onClick={() => setMenuOpen(false)}
             >
-              <div className="shell grid h-[74px] shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-6">
+              <div
+                className="shell grid h-[74px] shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-6"
+                onClick={(event) => event.stopPropagation()}
+              >
                 <Link
                   to="/"
                   onClick={() => setMenuOpen(false)}
@@ -130,7 +133,10 @@ export function Header() {
                   <X className="h-5 w-5" />
                 </button>
               </div>
-              <nav className="shell flex min-h-0 flex-1 flex-col justify-center gap-[clamp(1rem,4vh,2rem)] py-8">
+              <nav
+                className="shell flex min-h-0 flex-1 flex-col justify-center gap-[clamp(1rem,4vh,2rem)] py-8"
+                onClick={(event) => event.stopPropagation()}
+              >
                 {NAV.map((item) => (
                   <Link
                     key={item.to}
