@@ -23,6 +23,8 @@ export const Route = createFileRoute("/")({
           "Ready-to-wear, leather goods, shoes and objects from Auréa. Small-atelier craft, ivory and burgundy, made to be kept.",
       },
       { property: "og:title", content: "Auréa — Mediterranean Quiet Luxury" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       {
         property: "og:description",
         content: "Ready-to-wear, leather goods, shoes and objects, made in small Mediterranean ateliers.",

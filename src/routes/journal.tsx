@@ -15,6 +15,8 @@ export const Route = createFileRoute("/journal")({
           "Atelier notes, material studies and seasonal observations from the Auréa design team.",
       },
       { property: "og:title", content: "Journal — Auréa" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:description", content: "Atelier notes and material studies from Auréa." },
     ],
   }),

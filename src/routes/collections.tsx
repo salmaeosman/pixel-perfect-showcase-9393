@@ -29,6 +29,8 @@ export const Route = createFileRoute("/collections")({
           "Browse the full Auréa collection: ready-to-wear, bags, shoes, accessories and objects, filtered by size, colour and price.",
       },
       { property: "og:title", content: "Collections — Auréa" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       {
         property: "og:description",
         content: "Ready-to-wear, bags, shoes, accessories and objects from Auréa.",
