@@ -1,0 +1,4 @@
+- [ ] Associate distinct same-product alternate views where available; avoid duplicated images for remaining products (new image generation blocked by exhausted Build credits).
+- [ ] Make collection filters fit phone and tablet layouts.
+- [ ] Make selecting a product colour update that product's displayed imagery and keep selection consistent in the bag.
+- [ ] Verify on phone and tablet plus all product media mappings.
