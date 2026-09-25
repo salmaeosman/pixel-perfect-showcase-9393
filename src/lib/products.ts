@@ -11,6 +11,23 @@ import editorial from "@/assets/editorial.jpg";
 import linenShirt from "@/assets/linen-shirt.jpg";
 import brassCuff from "@/assets/brass-cuff.jpg";
 import stoneBowl from "@/assets/stone-bowl.jpg";
+import bagAureliaAlt from "@/assets/bag-aurelia-alt.jpg";
+import coatAlt from "@/assets/coat-alt.jpg";
+import shoesAlt from "@/assets/shoes-alt.jpg";
+import dressAlt from "@/assets/dress-alt.jpg";
+import knitAlt from "@/assets/knit-alt.jpg";
+import toteAlt from "@/assets/tote-alt.jpg";
+import loafersAlt from "@/assets/loafers-alt.jpg";
+import scarfAlt from "@/assets/scarf-alt.jpg";
+import bagCamel from "@/assets/bag-aurelia-camel.jpg";
+import coatIvory from "@/assets/coat-ivory.jpg";
+import shoesIvory from "@/assets/shoes-ivory.jpg";
+import dressBurgundy from "@/assets/dress-burgundy.jpg";
+import knitIvory from "@/assets/knit-ivory.jpg";
+import toteCamel from "@/assets/tote-camel.jpg";
+import loafersBurgundy from "@/assets/loafers-burgundy.jpg";
+import scarfIvory from "@/assets/scarf-ivory.jpg";
+import linenShirtStone from "@/assets/linen-shirt-stone.jpg";
 
 export type Category = "Women" | "Bags" | "Shoes" | "Accessories" | "Objects";
 
@@ -22,7 +39,8 @@ export type Product = {
   colors: { name: string; hex: string }[];
   sizes: string[];
   image: string;
-  hover: string;
+  hover?: string;
+  colorImages?: Record<string, string>;
   description: string;
   materials: string;
   care: string;
@@ -45,7 +63,8 @@ export const products: Product[] = [
     colors: [burgundyC, camelC],
     sizes: ["One size"],
     image: bagAurelia,
-    hover: bagAurelia,
+    hover: bagAureliaAlt,
+    colorImages: { Camel: bagCamel },
     description:
       "A sculpted top-handle bag in polished calfskin, built around a single continuous panel. Hand-finished edges, brushed brass closure, suede-lined interior.",
     materials: "Polished calfskin, brass hardware, suede lining. Made in Florence.",
@@ -60,7 +79,8 @@ export const products: Product[] = [
     colors: [camelC, ivoryC],
     sizes: ["XS", "S", "M", "L"],
     image: coat,
-    hover: coat,
+    hover: coatAlt,
+    colorImages: { Ivory: coatIvory },
     description:
       "An unlined double-faced wool coat cut long and narrow, with dropped shoulders and hand-stitched seams throughout.",
     materials: "92% virgin wool, 8% cashmere. Woven in Biella.",
@@ -75,7 +95,8 @@ export const products: Product[] = [
     colors: [burgundyC, ivoryC],
     sizes: ["36", "37", "38", "39", "40", "41"],
     image: shoes,
-    hover: shoes,
+    hover: shoesAlt,
+    colorImages: { Ivory: shoesIvory },
     description:
       "A low block-heel slingback with an elongated toe, softened by a hand-burnished finish.",
     materials: "Nappa leather upper, leather sole, 45 mm heel.",
@@ -90,7 +111,8 @@ export const products: Product[] = [
     colors: [ivoryC, burgundyC],
     sizes: ["XS", "S", "M", "L"],
     image: dress,
-    hover: dress,
+    hover: dressAlt,
+    colorImages: { Burgundy: dressBurgundy },
     description:
       "Cut on the bias from heavy sand-washed silk so the fabric falls without interruption.",
     materials: "100% mulberry silk, 22 momme.",
@@ -105,7 +127,8 @@ export const products: Product[] = [
     colors: [stoneC, ivoryC],
     sizes: ["XS", "S", "M", "L"],
     image: knit,
-    hover: knit,
+    hover: knitAlt,
+    colorImages: { Ivory: knitIvory },
     description: "A relaxed crewneck knitted in Inner Mongolian cashmere, finished with ribbed cuffs.",
     materials: "100% grade-A cashmere, 12 gauge.",
     care: "Hand wash cold, dry flat. Store folded.",
@@ -118,7 +141,8 @@ export const products: Product[] = [
     colors: [ivoryC, camelC],
     sizes: ["One size"],
     image: tote,
-    hover: tote,
+    hover: toteAlt,
+    colorImages: { Camel: toteCamel },
     description: "An unstructured day tote in grained leather that softens with wear.",
     materials: "Grained calfskin, cotton canvas lining.",
     care: "Keep away from prolonged sunlight. Condition twice yearly.",
@@ -131,7 +155,8 @@ export const products: Product[] = [
     colors: [camelC, burgundyC],
     sizes: ["36", "37", "38", "39", "40", "41"],
     image: loafers,
-    hover: loafers,
+    hover: loafersAlt,
+    colorImages: { Burgundy: loafersBurgundy },
     description: "A hand-lasted penny loafer on a slim leather sole, made for long walks on stone.",
     materials: "Vegetable-tanned calfskin, blake-stitched leather sole.",
     care: "Brush after wear. Polish with neutral cream.",
@@ -144,7 +169,8 @@ export const products: Product[] = [
     colors: [burgundyC, ivoryC],
     sizes: ["90 × 90 cm"],
     image: scarf,
-    hover: scarf,
+    hover: scarfAlt,
+    colorImages: { Ivory: scarfIvory },
     description: "A hand-rolled twill square printed in two colours, drawn from archive drapery studies.",
     materials: "100% silk twill, hand-rolled edges. Printed in Como.",
     care: "Dry clean only. Fold along the original creases.",
@@ -157,7 +183,6 @@ export const products: Product[] = [
     colors: [{ name: "Terracotta", hex: "#B06A4A" }],
     sizes: ["H 42 cm"],
     image: vase,
-    hover: vase,
     description: "A wheel-thrown vessel from a family workshop in Puglia, each one lightly irregular.",
     materials: "Unglazed terracotta, hand-thrown.",
     care: "Use a liner for fresh flowers. Wipe with a dry cloth.",
@@ -170,7 +195,7 @@ export const products: Product[] = [
     colors: [ivoryC, stoneC],
     sizes: ["XS", "S", "M", "L"],
     image: linenShirt,
-    hover: linenShirt,
+    colorImages: { Stone: linenShirtStone },
     description: "An oversized shirt in washed linen with a soft collar and mother-of-pearl buttons.",
     materials: "100% European linen, garment washed.",
     care: "Machine wash cold. Line dry; creases are intended.",
@@ -183,7 +208,6 @@ export const products: Product[] = [
     colors: [{ name: "Brass", hex: "#B08A5E" }],
     sizes: ["S/M", "M/L"],
     image: brassCuff,
-    hover: brassCuff,
     description: "A weighty open cuff, hand-forged and brushed to a low sheen.",
     materials: "Solid brass, hand-forged.",
     care: "Patina develops naturally. Polish to restore shine.",
@@ -196,7 +220,6 @@ export const products: Product[] = [
     colors: [{ name: "Travertine", hex: "#D9CDBA" }],
     sizes: ["Ø 28 cm"],
     image: stoneBowl,
-    hover: stoneBowl,
     description: "Turned from a single block of Italian travertine, left unfilled and honed.",
     materials: "Solid travertine, honed finish.",
     care: "Seal annually. Avoid acidic liquids.",
@@ -209,6 +232,11 @@ export const formatPrice = (value: number) =>
   );
 
 export const getProduct = (id: string) => products.find((p) => p.id === id);
+
+export const getProductImages = (product: Product, color: string) => {
+  const selected = product.colorImages?.[color];
+  return selected ? [selected] : product.hover ? [product.image, product.hover] : [product.image];
+};
 
 export const journal = [
   {

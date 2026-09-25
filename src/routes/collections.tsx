@@ -81,7 +81,7 @@ function Collections() {
       </section>
 
       <div className="shell">
-        <div className="flex flex-wrap items-center gap-x-8 gap-y-5 border-y border-border py-5">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-5 border-y border-border py-5 sm:grid-cols-3 lg:flex lg:flex-wrap lg:items-center lg:gap-x-8">
           <Filter
             label="Category"
             value={search.category}
@@ -102,7 +102,7 @@ function Collections() {
             format={(v) => `Under €${v}`}
             onChange={(v) => set({ maxPrice: v ? Number(v) : undefined })}
           />
-          <div className="ml-auto flex items-center gap-6">
+          <div className="col-span-2 flex min-w-0 items-center justify-between gap-4 sm:col-span-1 lg:ml-auto lg:justify-start lg:gap-6">
             {hasFilters && (
               <button
                 type="button"
@@ -160,12 +160,12 @@ function Filter({
   format?: ((v: string) => string) | undefined;
 }) {
   return (
-    <label className="flex items-center gap-3">
-      <span className="label-xs text-muted-foreground">{label}</span>
+    <label className="flex min-w-0 items-center gap-2 lg:gap-3">
+      <span className="label-xs shrink-0 text-muted-foreground">{label}</span>
       <select
         value={value ?? ""}
         onChange={(e) => onChange(e.target.value || undefined)}
-        className="label-xs cursor-pointer border-0 bg-transparent py-1 pr-2 outline-none focus:text-burgundy"
+        className="label-xs min-w-0 max-w-full cursor-pointer border-0 bg-transparent py-1 pr-1 outline-none focus:text-burgundy"
       >
         <option value="">All</option>
         {options.map((o) => (

@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { Heart, Minus, Plus } from "lucide-react";
-import { formatPrice, getProduct, products } from "@/lib/products";
+import { formatPrice, getProduct, getProductImages, products } from "@/lib/products";
 import { useShop } from "@/lib/shop";
 import { ProductCard } from "@/components/site/ProductCard";
 import { Reveal } from "@/components/site/Reveal";
@@ -38,6 +38,7 @@ function ProductPage() {
   const [open, setOpen] = useState<string | null>("description");
 
   const saved = wishlist.includes(product.id);
+  const images = getProductImages(product, color);
   const related = products.filter((p) => p.id !== product.id && p.category === product.category).slice(0, 4);
   const filler = products.filter((p) => p.id !== product.id && p.category !== product.category);
   const recommended = [...related, ...filler].slice(0, 4);
@@ -56,19 +57,17 @@ function ProductPage() {
 
       <section className="shell grid gap-12 pb-24 md:grid-cols-[60fr_40fr] md:gap-16">
         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-1">
-          <img
-            src={product.image}
-            alt={product.name}
-            width={1008}
-            height={1264}
-            className="w-full bg-cream object-cover"
-          />
-          <img
-            src={product.hover}
-            alt={`${product.name}, alternate view`}
-            loading="lazy"
-            className="w-full bg-cream object-cover"
-          />
+          {images.map((image, index) => (
+            <img
+              key={image}
+              src={image}
+              alt={`${product.name} in ${color}${index ? ", alternate view" : ""}`}
+              width={1008}
+              height={1264}
+              loading={index ? "lazy" : undefined}
+              className="w-full bg-cream object-cover"
+            />
+          ))}
         </div>
 
         <div className="md:sticky md:top-[100px] md:self-start">
