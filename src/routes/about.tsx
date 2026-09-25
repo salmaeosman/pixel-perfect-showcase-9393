@@ -13,6 +13,8 @@ export const Route = createFileRoute("/about")({
           "Auréa was founded in 1994 around a single Florentine leather workshop. Our approach to materials, makers and pace.",
       },
       { property: "og:title", content: "About the House — Auréa" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       {
         property: "og:description",
         content: "Founded in 1994 around one Florentine workshop. Few pieces, made properly.",

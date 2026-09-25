@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { X } from "lucide-react";
-import { formatPrice } from "@/lib/products";
+import { formatPrice, getProductImages } from "@/lib/products";
 import { useShop } from "@/lib/shop";
 
 export function CartDrawer() {
@@ -40,7 +40,7 @@ export function CartDrawer() {
                   <li key={line.key} className="grid grid-cols-[84px_minmax(0,1fr)] gap-4 py-6">
                     <Link to="/product/$id" params={{ id: product.id }} onClick={() => setCartOpen(false)}>
                       <img
-                        src={product.image}
+                        src={getProductImages(product, line.color)[0] ?? product.image}
                         alt={product.name}
                         loading="lazy"
                         className="h-[105px] w-[84px] object-cover"

@@ -9,6 +9,8 @@ export const Route = createFileRoute("/wishlist")({
       { title: "Wishlist — Auréa" },
       { name: "description", content: "The Auréa pieces you have saved for later." },
       { property: "og:title", content: "Wishlist — Auréa" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:description", content: "The Auréa pieces you have saved for later." },
     ],
   }),

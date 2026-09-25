@@ -22,13 +22,15 @@ export function ProductCard({ product }: { product: Product }) {
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover transition-all duration-[900ms] ease-[var(--ease-luxe)] group-hover:scale-[1.03] group-hover:opacity-0"
           />
-          <img
-            src={product.hover}
-            alt=""
-            aria-hidden="true"
-            loading="lazy"
-            className="absolute inset-0 h-full w-full scale-[1.03] object-cover opacity-0 transition-all duration-[900ms] ease-[var(--ease-luxe)] group-hover:scale-100 group-hover:opacity-100"
-          />
+          {product.hover && (
+            <img
+              src={product.hover}
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              className="absolute inset-0 h-full w-full scale-[1.03] object-cover opacity-0 transition-all duration-[900ms] ease-[var(--ease-luxe)] group-hover:scale-100 group-hover:opacity-100"
+            />
+          )}
         </Link>
 
         {product.isNew && (

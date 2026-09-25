@@ -12,6 +12,8 @@ export const Route = createFileRoute("/contact")({
           "Reach Auréa client care, book a private appointment in Florence, or ask about repairs and sizing.",
       },
       { property: "og:title", content: "Contact & Appointments — Auréa" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:description", content: "Client care, private appointments and repairs." },
     ],
   }),

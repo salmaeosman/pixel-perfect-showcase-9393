@@ -1,0 +1,5 @@
+- [x] Connect eight distinct alternate product views; show one truthful image instead of a duplicate for the other four.
+- [x] Fit collection filters on phone and tablet layouts.
+- [x] Update the selected product's photo and matching bag photo when its colour changes.
+- [x] Verify filters, colour selection, bag imagery and all twelve product galleries on phone and tablet.
+- [ ] Four additional product perspectives (vessel, shirt, cuff, bowl) — blocked by exhausted Build credits for image generation.

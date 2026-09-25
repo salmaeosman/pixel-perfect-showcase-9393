@@ -16,6 +16,9 @@ export function Header() {
   const { count, setCartOpen, setSearchOpen } = useShop();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -99,7 +102,7 @@ export function Header() {
         </div>
       </div>
 
-      {typeof document !== "undefined" &&
+      {mounted &&
         createPortal(
           <div
             className={`fixed inset-0 z-[100] overflow-hidden bg-background transition-[opacity,visibility] duration-500 ease-[var(--ease-luxe)] lg:hidden ${
