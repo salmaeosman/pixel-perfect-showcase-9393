@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Reveal } from "@/components/site/Reveal";
+import { Reveal } from "@/frontend/components/site/Reveal";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -55,7 +55,8 @@ function Contact() {
           <div className="border border-border p-12">
             <h2 className="font-display text-3xl">Thank you.</h2>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              Your message has reached client care. We reply to every enquiry within one working day.
+              Your message has reached client care. We reply to every enquiry within one working
+              day.
             </p>
           </div>
         ) : (

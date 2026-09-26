@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import editorial from "@/assets/editorial.jpg";
-import atelier from "@/assets/atelier.jpg";
-import vase from "@/assets/vase.jpg";
-import { journal } from "@/lib/products";
-import { Reveal } from "@/components/site/Reveal";
+import editorial from "@/frontend/assets/editorial.jpg";
+import atelier from "@/frontend/assets/atelier.jpg";
+import vase from "@/frontend/assets/vase.jpg";
+import { journal } from "@/frontend/lib/products";
+import { Reveal } from "@/frontend/components/site/Reveal";
 
 export const Route = createFileRoute("/journal")({
   head: () => ({
@@ -53,7 +53,9 @@ function Journal() {
             <p className="label-xs text-muted-foreground">{lead.date}</p>
             <h2 className="display-lg mt-5">{lead.title}</h2>
             <p className="mt-6 text-sm leading-relaxed text-muted-foreground">{lead.excerpt}</p>
-            <p className="label-xs link-underline mt-8 inline-block text-burgundy">Read the article</p>
+            <p className="label-xs link-underline mt-8 inline-block text-burgundy">
+              Read the article
+            </p>
           </div>
         </Reveal>
 
@@ -68,7 +70,9 @@ function Journal() {
               />
               <p className="label-xs mt-5 text-muted-foreground">{article.date}</p>
               <h3 className="mt-3 font-display text-3xl">{article.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{article.excerpt}</p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                {article.excerpt}
+              </p>
             </Reveal>
           ))}
         </div>

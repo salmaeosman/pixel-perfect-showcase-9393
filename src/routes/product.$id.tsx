@@ -1,10 +1,10 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { Heart, Minus, Plus } from "lucide-react";
-import { formatPrice, getProduct, getProductImages, products } from "@/lib/products";
-import { useShop } from "@/lib/shop";
-import { ProductCard } from "@/components/site/ProductCard";
-import { Reveal } from "@/components/site/Reveal";
+import { formatPrice, getProduct, getProductImages, products } from "@/frontend/lib/products";
+import { useShop } from "@/frontend/lib/shop";
+import { ProductCard } from "@/frontend/components/site/ProductCard";
+import { Reveal } from "@/frontend/components/site/Reveal";
 
 export const Route = createFileRoute("/product/$id")({
   loader: ({ params }) => {
@@ -41,7 +41,9 @@ function ProductPage() {
 
   const saved = wishlist.includes(product.id);
   const images = getProductImages(product, color);
-  const related = products.filter((p) => p.id !== product.id && p.category === product.category).slice(0, 4);
+  const related = products
+    .filter((p) => p.id !== product.id && p.category === product.category)
+    .slice(0, 4);
   const filler = products.filter((p) => p.id !== product.id && p.category !== product.category);
   const recommended = [...related, ...filler].slice(0, 4);
 
@@ -91,7 +93,10 @@ function ProductPage() {
                     color === c.name ? "border-burgundy" : "border-border"
                   }`}
                 >
-                  <span className="block h-full w-full border border-background" style={{ background: c.hex }} />
+                  <span
+                    className="block h-full w-full border border-background"
+                    style={{ background: c.hex }}
+                  />
                 </button>
               ))}
             </div>
@@ -107,7 +112,9 @@ function ProductPage() {
                   aria-pressed={size === s}
                   onClick={() => setSize(s)}
                   className={`label-xs border px-5 py-3 transition-colors duration-500 ${
-                    size === s ? "border-burgundy text-burgundy" : "border-border hover:border-foreground/40"
+                    size === s
+                      ? "border-burgundy text-burgundy"
+                      : "border-border hover:border-foreground/40"
                   }`}
                 >
                   {s}
@@ -118,11 +125,21 @@ function ProductPage() {
 
           <div className="mt-10 flex flex-wrap items-stretch gap-4">
             <div className="flex items-center border border-border">
-              <button type="button" aria-label="Decrease quantity" onClick={() => setQty(Math.max(1, qty - 1))} className="px-4">
+              <button
+                type="button"
+                aria-label="Decrease quantity"
+                onClick={() => setQty(Math.max(1, qty - 1))}
+                className="px-4"
+              >
                 <Minus className="h-3.5 w-3.5" />
               </button>
               <span className="min-w-8 text-center text-sm tabular-nums">{qty}</span>
-              <button type="button" aria-label="Increase quantity" onClick={() => setQty(qty + 1)} className="px-4">
+              <button
+                type="button"
+                aria-label="Increase quantity"
+                onClick={() => setQty(qty + 1)}
+                className="px-4"
+              >
                 <Plus className="h-3.5 w-3.5" />
               </button>
             </div>

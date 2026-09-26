@@ -1,8 +1,8 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useMemo } from "react";
-import { CATEGORIES, products, type Category } from "@/lib/products";
-import { ProductCard } from "@/components/site/ProductCard";
-import { Reveal } from "@/components/site/Reveal";
+import { CATEGORIES, products, type Category } from "@/frontend/lib/products";
+import { ProductCard } from "@/frontend/components/site/ProductCard";
+import { Reveal } from "@/frontend/components/site/Reveal";
 
 type Search = {
   category?: string | undefined;
@@ -90,7 +90,12 @@ function Collections() {
             options={CATEGORIES as unknown as string[]}
             onChange={(v) => set({ category: v as Category | undefined })}
           />
-          <Filter label="Size" value={search.size} options={SIZES} onChange={(v) => set({ size: v })} />
+          <Filter
+            label="Size"
+            value={search.size}
+            options={SIZES}
+            onChange={(v) => set({ size: v })}
+          />
           <Filter
             label="Colour"
             value={search.color}
@@ -108,7 +113,14 @@ function Collections() {
             {hasFilters && (
               <button
                 type="button"
-                onClick={() => set({ category: undefined, color: undefined, size: undefined, maxPrice: undefined })}
+                onClick={() =>
+                  set({
+                    category: undefined,
+                    color: undefined,
+                    size: undefined,
+                    maxPrice: undefined,
+                  })
+                }
                 className="label-xs text-burgundy"
               >
                 Clear
@@ -118,9 +130,7 @@ function Collections() {
               label="Sort"
               value={search.sort}
               options={["new", "price-asc", "price-desc"]}
-              format={(v) =>
-                v === "new" ? "Newest" : v === "price-asc" ? "Price ↑" : "Price ↓"
-              }
+              format={(v) => (v === "new" ? "Newest" : v === "price-asc" ? "Price ↑" : "Price ↓")}
               onChange={(v) => set({ sort: v })}
             />
           </div>

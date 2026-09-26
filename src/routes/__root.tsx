@@ -7,15 +7,14 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { type ReactNode } from "react";
 
-import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
-import { ShopProvider } from "@/lib/shop";
-import { Header } from "@/components/site/Header";
-import { Footer } from "@/components/site/Footer";
-import { CartDrawer } from "@/components/site/CartDrawer";
-import { SearchOverlay } from "@/components/site/SearchOverlay";
+import appCss from "../frontend/styles.css?url";
+import { ShopProvider } from "@/frontend/lib/shop";
+import { Header } from "@/frontend/components/site/Header";
+import { Footer } from "@/frontend/components/site/Footer";
+import { CartDrawer } from "@/frontend/components/site/CartDrawer";
+import { SearchOverlay } from "@/frontend/components/site/SearchOverlay";
 
 function NotFoundComponent() {
   return (
@@ -38,9 +37,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-[70vh] items-center justify-center bg-background px-4">
@@ -82,7 +78,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Auréa — Quiet Luxury Ready-to-Wear & Leather Goods" },
       {
         property: "og:description",
-        content: "Considered clothing, leather goods and objects made in small Mediterranean ateliers.",
+        content:
+          "Considered clothing, leather goods and objects made in small Mediterranean ateliers.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -95,7 +92,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
     ],
   }),
   shellComponent: RootShell,

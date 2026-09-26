@@ -1,17 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Package, Globe, Leaf, Gem } from "lucide-react";
-import hero from "@/assets/hero.jpg";
-import editorial from "@/assets/editorial.jpg";
-import atelier from "@/assets/atelier.jpg";
-import bagAurelia from "@/assets/bag-aurelia.jpg";
-import coat from "@/assets/coat.jpg";
-import tote from "@/assets/tote.jpg";
-import shoes from "@/assets/shoes.jpg";
-import vase from "@/assets/vase.jpg";
-import { formatPrice, journal, products } from "@/lib/products";
-import { useShop } from "@/lib/shop";
-import { ProductCard } from "@/components/site/ProductCard";
-import { Reveal } from "@/components/site/Reveal";
+import hero from "@/frontend/assets/hero.jpg";
+import editorial from "@/frontend/assets/editorial.jpg";
+import atelier from "@/frontend/assets/atelier.jpg";
+import bagAurelia from "@/frontend/assets/bag-aurelia.jpg";
+import coat from "@/frontend/assets/coat.jpg";
+import tote from "@/frontend/assets/tote.jpg";
+import shoes from "@/frontend/assets/shoes.jpg";
+import vase from "@/frontend/assets/vase.jpg";
+import { formatPrice, journal, products } from "@/frontend/lib/products";
+import { useShop } from "@/frontend/lib/shop";
+import { ProductCard } from "@/frontend/components/site/ProductCard";
+import { Reveal } from "@/frontend/components/site/Reveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,7 +27,8 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
       {
         property: "og:description",
-        content: "Ready-to-wear, leather goods, shoes and objects, made in small Mediterranean ateliers.",
+        content:
+          "Ready-to-wear, leather goods, shoes and objects, made in small Mediterranean ateliers.",
       },
     ],
   }),
@@ -65,8 +66,8 @@ function Home() {
             tells a story.
           </h1>
           <p className="mt-7 max-w-sm text-base leading-relaxed text-muted-foreground">
-            Clothing, leather and objects made in small Mediterranean ateliers — cut for a long life,
-            not a season.
+            Clothing, leather and objects made in small Mediterranean ateliers — cut for a long
+            life, not a season.
           </p>
           <Link
             to="/collections"
@@ -141,9 +142,9 @@ function Home() {
             <p className="label-xs opacity-70">The philosophy</p>
             <h2 className="display-lg mt-6">Built from light, stone and linen.</h2>
             <p className="mt-7 max-w-sm text-sm leading-relaxed opacity-80">
-              Our collections begin in the southern afternoon — limewash walls, the shade of an olive
-              tree, sun-bleached cotton on a line. We translate that into garments with as little
-              between you and the material as possible.
+              Our collections begin in the southern afternoon — limewash walls, the shade of an
+              olive tree, sun-bleached cotton on a line. We translate that into garments with as
+              little between you and the material as possible.
             </p>
             <Link
               to="/about"
@@ -210,7 +211,13 @@ function Home() {
             <div className="mt-10 flex flex-wrap gap-4">
               <button
                 type="button"
-                onClick={() => addToCart(featured, featured.sizes[0] ?? "One size", featured.colors[0]?.name ?? "Default")}
+                onClick={() =>
+                  addToCart(
+                    featured,
+                    featured.sizes[0] ?? "One size",
+                    featured.colors[0]?.name ?? "Default",
+                  )
+                }
                 className="label-xs bg-burgundy px-9 py-4 text-primary-foreground transition-colors duration-500 hover:bg-burgundy-deep"
               >
                 Add to bag
@@ -275,7 +282,9 @@ function Home() {
                 </div>
                 <p className="label-xs mt-5 text-muted-foreground">{article.date}</p>
                 <h3 className="mt-3 font-display text-2xl">{article.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{article.excerpt}</p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {article.excerpt}
+                </p>
               </Link>
             </Reveal>
           ))}

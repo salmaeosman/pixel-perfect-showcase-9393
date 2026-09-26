@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import editorial from "@/assets/editorial.jpg";
-import atelier from "@/assets/atelier.jpg";
-import { Reveal } from "@/components/site/Reveal";
+import editorial from "@/frontend/assets/editorial.jpg";
+import atelier from "@/frontend/assets/atelier.jpg";
+import { Reveal } from "@/frontend/components/site/Reveal";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -49,8 +49,8 @@ function About() {
         </div>
         <p className="max-w-xl self-end text-base leading-relaxed text-muted-foreground">
           Auréa began in 1994 with one leather workshop in Florence and a refusal to produce more
-          than the hands available could finish. Three decades on, the rule still governs everything:
-          the number of pieces, the pace of the collections, and who we work with.
+          than the hands available could finish. Three decades on, the rule still governs
+          everything: the number of pieces, the pace of the collections, and who we work with.
         </p>
       </section>
 
@@ -78,15 +78,22 @@ function About() {
       <section className="bg-cream">
         <div className="shell grid items-center gap-12 py-24 md:grid-cols-2 md:gap-20">
           <Reveal>
-            <img src={atelier} alt="Leatherworker at the bench" loading="lazy" width={1200} height={912} className="w-full object-cover" />
+            <img
+              src={atelier}
+              alt="Leatherworker at the bench"
+              loading="lazy"
+              width={1200}
+              height={912}
+              className="w-full object-cover"
+            />
           </Reveal>
           <Reveal delay={120}>
             <p className="label-xs text-burgundy">The makers</p>
             <h2 className="display-lg mt-5">Eleven workshops, four countries.</h2>
             <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
               Leather in Florence, knitwear in Biella, silk printing in Como, terracotta in Puglia.
-              We visit each workshop twice a year and agree prices before quantities — the reverse of
-              how most of this industry works.
+              We visit each workshop twice a year and agree prices before quantities — the reverse
+              of how most of this industry works.
             </p>
           </Reveal>
         </div>
