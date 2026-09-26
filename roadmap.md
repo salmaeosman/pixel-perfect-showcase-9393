@@ -2,4 +2,5 @@
 - [x] Fit collection filters on phone and tablet layouts.
 - [x] Update the selected product's photo and matching bag photo when its colour changes.
 - [x] Verify filters, colour selection, bag imagery and all twelve product galleries on phone and tablet.
-- [ ] Four additional product perspectives (vessel, shirt, cuff, bowl) — blocked by exhausted Build credits for image generation.
+- [x] Four additional product perspectives (vessel, shirt, cuff, bowl).
+- [ ] Payment method — waiting on the seller's registered country from the user.
