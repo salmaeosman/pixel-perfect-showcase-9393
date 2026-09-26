@@ -28,6 +28,10 @@ import toteCamel from "@/assets/tote-camel.jpg";
 import loafersBurgundy from "@/assets/loafers-burgundy.jpg";
 import scarfIvory from "@/assets/scarf-ivory.jpg";
 import linenShirtStone from "@/assets/linen-shirt-stone.jpg";
+import vaseAlt from "@/assets/vase-alt.jpg";
+import linenShirtAlt from "@/assets/linen-shirt-alt.jpg";
+import brassCuffAlt from "@/assets/brass-cuff-alt.jpg";
+import stoneBowlAlt from "@/assets/stone-bowl-alt.jpg";
 
 export type Category = "Women" | "Bags" | "Shoes" | "Accessories" | "Objects";
 
@@ -183,6 +187,7 @@ export const products: Product[] = [
     colors: [{ name: "Terracotta", hex: "#B06A4A" }],
     sizes: ["H 42 cm"],
     image: vase,
+    hover: vaseAlt,
     description: "A wheel-thrown vessel from a family workshop in Puglia, each one lightly irregular.",
     materials: "Unglazed terracotta, hand-thrown.",
     care: "Use a liner for fresh flowers. Wipe with a dry cloth.",
@@ -195,6 +200,7 @@ export const products: Product[] = [
     colors: [ivoryC, stoneC],
     sizes: ["XS", "S", "M", "L"],
     image: linenShirt,
+    hover: linenShirtAlt,
     colorImages: { Stone: linenShirtStone },
     description: "An oversized shirt in washed linen with a soft collar and mother-of-pearl buttons.",
     materials: "100% European linen, garment washed.",
@@ -208,6 +214,7 @@ export const products: Product[] = [
     colors: [{ name: "Brass", hex: "#B08A5E" }],
     sizes: ["S/M", "M/L"],
     image: brassCuff,
+    hover: brassCuffAlt,
     description: "A weighty open cuff, hand-forged and brushed to a low sheen.",
     materials: "Solid brass, hand-forged.",
     care: "Patina develops naturally. Polish to restore shine.",
@@ -220,6 +227,7 @@ export const products: Product[] = [
     colors: [{ name: "Travertine", hex: "#D9CDBA" }],
     sizes: ["Ø 28 cm"],
     image: stoneBowl,
+    hover: stoneBowlAlt,
     description: "Turned from a single block of Italian travertine, left unfilled and honed.",
     materials: "Solid travertine, honed finish.",
     care: "Seal annually. Avoid acidic liquids.",
