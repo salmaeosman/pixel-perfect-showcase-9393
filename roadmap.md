@@ -3,4 +3,4 @@
 - [x] Update the selected product's photo and matching bag photo when its colour changes.
 - [x] Verify filters, colour selection, bag imagery and all twelve product galleries on phone and tablet.
 - [x] Four additional product perspectives (vessel, shirt, cuff, bowl).
-- [ ] Payment method — waiting on the seller's registered country from the user.
+- [ ] Payment method — on hold at the user's request (Shopify recommended for Morocco + physical goods).
