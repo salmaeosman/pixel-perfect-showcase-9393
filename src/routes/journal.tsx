@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import editorial from "@/frontend/assets/editorial.jpg";
-import atelier from "@/frontend/assets/atelier.jpg";
+import atelier from "@/frontend/assets/ATL.png";
 import vase from "@/frontend/assets/vase.jpg";
 import { journal } from "@/frontend/lib/products";
 import { Reveal } from "@/frontend/components/site/Reveal";
